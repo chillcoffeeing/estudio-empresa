@@ -1,0 +1,61 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import TopicNav from "../../components/TopicNav.astro";
+import { topics } from "../../data/topics";
+
+const topic = topics.find((t) => t.slug === "operaciones")!;
+---
+
+<Layout title={topic.title} color={topic.color}>
+  <div class="article-header">
+    <span class="icon-badge">{topic.icon}</span>
+    <h1>{topic.title}</h1>
+    <p class="subtitle">{topic.subtitle}</p>
+  </div>
+
+  <article>
+    <section>
+      <h2><span class="section-num">01</span> Procesos documentados</h2>
+      <p class="section-lede">Si un proceso solo existe en la cabeza del fundador, la empresa no puede crecer ni sobrevivir a que esa persona se ausente.</p>
+      <ul>
+        <li><strong>SOPs</strong> (procedimientos operativos estándar) para toda tarea recurrente que impacte al cliente.</li>
+        <li><strong>Cadena de valor:</strong> mapear cada paso desde el insumo hasta la entrega, identificando dónde se agrega valor real y dónde solo hay fricción.</li>
+        <li><strong>Cuellos de botella:</strong> la capacidad del sistema la define su etapa más lenta, no el promedio.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="section-num">02</span> Cadena de suministro y proveedores</h2>
+      <ul>
+        <li><strong>Diversificación de proveedores:</strong> depender de un solo proveedor crítico es un riesgo operativo, no una conveniencia.</li>
+        <li><strong>Inventario:</strong> equilibrio entre capital inmovilizado (exceso de stock) y quiebres de stock (ventas perdidas).</li>
+        <li><strong>SLAs</strong> (acuerdos de nivel de servicio) claros con proveedores y con clientes.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="section-num">03</span> Calidad y consistencia</h2>
+      <p class="section-lede">Escalar sin control de calidad es escalar los errores más rápido.</p>
+      <ul>
+        <li><strong>Estándares medibles</strong> de calidad, no solo "que quede bien".</li>
+        <li><strong>Ciclo de mejora continua</strong> (medir → identificar causa raíz → ajustar → volver a medir).</li>
+        <li><strong>Capacidad vs. demanda:</strong> planificar con margen para picos, sin sobredimensionar costos fijos.</li>
+      </ul>
+      <div class="kpi-box">
+        <div class="label">Indicadores operativos clave</div>
+        Tiempo de ciclo · Tasa de error/retrabajo · Costo por unidad entregada · Utilización de capacidad · Cumplimiento de SLA.
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="section-num">04</span> Herramientas de gestión</h2>
+      <ul>
+        <li><strong>Gestión de proyectos</strong> (metodologías ágiles o kanban) para dar visibilidad del trabajo en curso.</li>
+        <li><strong>Automatización</strong> de tareas repetitivas de bajo valor agregado, liberando tiempo del equipo para lo que sí requiere criterio humano.</li>
+        <li><strong>Trazabilidad:</strong> poder responder "¿dónde está esto y en qué estado?" en cualquier momento del proceso.</li>
+      </ul>
+    </section>
+
+    <TopicNav currentSlug={topic.slug} />
+  </article>
+</Layout>

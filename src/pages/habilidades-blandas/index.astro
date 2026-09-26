@@ -1,0 +1,60 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import TopicNav from "../../components/TopicNav.astro";
+import { topics } from "../../data/topics";
+
+const topic = topics.find((t) => t.slug === "habilidades-blandas")!;
+---
+
+<Layout title={topic.title} color={topic.color}>
+  <div class="article-header">
+    <span class="icon-badge">{topic.icon}</span>
+    <h1>{topic.title}</h1>
+    <p class="subtitle">{topic.subtitle}</p>
+  </div>
+
+  <article>
+    <section>
+      <h2><span class="section-num">01</span> Negociación</h2>
+      <ul>
+        <li><strong>Conocer tu BATNA</strong> (mejor alternativa a un acuerdo negociado): tu poder de negociación depende de qué tan buena es tu opción si no hay acuerdo.</li>
+        <li><strong>Negociar intereses, no posiciones:</strong> entender el "por qué" detrás de lo que pide la otra parte abre más opciones que pelear por el número.</li>
+        <li><strong>Aplica a todo:</strong> inversionistas, proveedores, clientes grandes, y también a la propia negociación salarial con el equipo.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="section-num">02</span> Comunicación con stakeholders</h2>
+      <ul>
+        <li><strong>Un mismo hecho, distinto framing</strong> según la audiencia: al equipo se le explica el "cómo", a inversionistas el "por qué y el retorno", a clientes el "qué gano yo".</li>
+        <li><strong>Comunicar malas noticias rápido y con un plan,</strong> no cuando ya no hay opción — genera más confianza que ocultar problemas.</li>
+        <li><strong>Escucha activa:</strong> la mayoría de los conflictos se resuelven entendiendo primero, no argumentando primero.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="section-num">03</span> Pensamiento sistémico</h2>
+      <p class="section-lede">Ninguna de las ramas anteriores funciona aislada — el trabajo del CEO es ver cómo se conectan.</p>
+      <ul>
+        <li><strong>Efectos de segundo orden:</strong> una decisión de precio afecta ventas, pero también margen, percepción de marca y capacidad operativa. Pensar más allá del efecto inmediato.</li>
+        <li><strong>Cuellos de botella del sistema completo:</strong> mejorar un área que no es la limitante no mejora el resultado del negocio.</li>
+        <li><strong>Retroalimentación (feedback loops):</strong> identificar qué ciclos se refuerzan solos (buenos o malos) para potenciarlos o cortarlos a tiempo.</li>
+      </ul>
+      <div class="kpi-box">
+        <div class="label">Ejemplo de conexión entre ramas</div>
+        Un problema de "ventas bajas" puede ser en realidad un problema de operaciones (mala entrega → mal boca a boca) o de finanzas (precios mal calculados) disfrazado de problema comercial.
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="section-num">04</span> Autogestión del CEO</h2>
+      <ul>
+        <li><strong>Gestión del propio tiempo</strong> como el recurso más escaso — priorizar lo importante sobre lo urgente de forma deliberada.</li>
+        <li><strong>Tolerancia a la incertidumbre:</strong> decidir con información incompleta es la norma, no la excepción, en una empresa.</li>
+        <li><strong>Red de mentores y pares</strong> fuera de la empresa para contrastar decisiones sin el sesgo de estar dentro del problema.</li>
+      </ul>
+    </section>
+
+    <TopicNav currentSlug={topic.slug} />
+  </article>
+</Layout>

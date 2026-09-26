@@ -1,0 +1,41 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  color?: string;
+}
+
+const { title, description = "Guía práctica de conocimiento empresarial para fundadores y CEOs.", color } = Astro.props;
+const pageTitle = title === "Guía del CEO" ? title : `${title} · Guía del CEO`;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="description" content={description} />
+    <title>{pageTitle}</title>
+  </head>
+  <body style={color ? `--card-color: ${color}; --card-color-soft: ${color}22;` : undefined}>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="brand" href="/">
+          🏢 Guía del CEO <span class="tag">conocimiento empresarial esencial</span>
+        </a>
+        <a class="back-link" href="/">Índice</a>
+      </div>
+    </header>
+    <main class="container">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        Guía interna de referencia · 8 ramas fundamentales para dirigir una empresa con criterio.
+      </div>
+    </footer>
+  </body>
+</html>

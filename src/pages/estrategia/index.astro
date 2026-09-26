@@ -1,0 +1,64 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import TopicNav from "../../components/TopicNav.astro";
+import { topics } from "../../data/topics";
+
+const topic = topics.find((t) => t.slug === "estrategia")!;
+---
+
+<Layout title={topic.title} color={topic.color}>
+  <div class="article-header">
+    <span class="icon-badge">{topic.icon}</span>
+    <h1>{topic.title}</h1>
+    <p class="subtitle">{topic.subtitle}</p>
+  </div>
+
+  <article>
+    <section>
+      <h2><span class="section-num">01</span> Modelo de negocio</h2>
+      <p class="section-lede">Antes de crecer, hay que poder explicar en una página cómo la empresa crea, entrega y captura valor.</p>
+      <ul>
+        <li><strong>Propuesta de valor:</strong> qué problema resuelves, para quién, y por qué eligen tu solución sobre alternativas (incluyendo "no hacer nada").</li>
+        <li><strong>Segmentos de cliente:</strong> quién paga realmente y quién solo usa — no siempre son la misma persona.</li>
+        <li><strong>Canales:</strong> cómo llegas al cliente (directo, distribuidores, digital, referidos).</li>
+        <li><strong>Fuentes de ingreso:</strong> venta única, suscripción, comisión, licenciamiento — cada una tiene distinta previsibilidad de caja.</li>
+        <li>Herramienta útil: el <strong>Business Model Canvas</strong>, para ver el negocio completo en una sola vista.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="section-num">02</span> Ventaja competitiva y foso defensivo (moat)</h2>
+      <p class="section-lede">Si cualquiera puede copiar lo que haces en seis meses, no tienes una empresa, tienes una idea temporal.</p>
+      <ul>
+        <li><strong>Fuentes de foso:</strong> efectos de red, costos de cambio para el cliente, economías de escala, marca, propiedad intelectual, acceso exclusivo a datos o distribución.</li>
+        <li><strong>Análisis competitivo</strong> no es solo ver precios de la competencia: es entender su modelo de costos y hasta dónde pueden bajar sin quebrar.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="section-num">03</span> Priorización y toma de decisiones</h2>
+      <p class="section-lede">La estrategia se define tanto por lo que se decide NO hacer como por lo que se hace.</p>
+      <ul>
+        <li><strong>OKRs o metas trimestrales</strong> claras, en cascada desde la visión anual hasta el equipo.</li>
+        <li><strong>Decisiones reversibles vs. irreversibles</strong> (puertas de un sentido vs. dos sentidos): las reversibles se deciden rápido y barato; las irreversibles merecen más análisis.</li>
+        <li><strong>Decidir con datos</strong> cuando existen, con juicio cuando no — pero nunca confundir opinión con evidencia.</li>
+      </ul>
+      <div class="kpi-box">
+        <div class="label">Preguntas que un CEO debe poder responder</div>
+        ¿Por qué crece o no crece esto? ¿Qué pasa si nuestro mayor cliente se va? ¿Cuál es nuestra ventaja en 3 años, no hoy?
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="section-num">04</span> Crecimiento y escalamiento</h2>
+      <p class="section-lede">Escalar antes de tener el modelo validado multiplica los problemas, no las ganancias.</p>
+      <ul>
+        <li><strong>Product-market fit</strong> primero: evidencia real de que el mercado quiere lo que ofreces, no solo intuición del fundador.</li>
+        <li><strong>Crecer por canal validado</strong> antes de diversificar canales nuevos.</li>
+        <li><strong>Efectos de escala:</strong> qué mejora (costo unitario, poder de negociación) y qué empeora (comunicación, control de calidad) al crecer.</li>
+      </ul>
+    </section>
+
+    <TopicNav currentSlug={topic.slug} />
+  </article>
+</Layout>

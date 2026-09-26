@@ -1,0 +1,63 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import TopicNav from "../../components/TopicNav.astro";
+import { topics } from "../../data/topics";
+
+const topic = topics.find((t) => t.slug === "ventas-marketing")!;
+---
+
+<Layout title={topic.title} color={topic.color}>
+  <div class="article-header">
+    <span class="icon-badge">{topic.icon}</span>
+    <h1>{topic.title}</h1>
+    <p class="subtitle">{topic.subtitle}</p>
+  </div>
+
+  <article>
+    <section>
+      <h2><span class="section-num">01</span> El embudo de adquisición</h2>
+      <p class="section-lede">Todo negocio tiene un embudo, lo mida o no. La diferencia es saber en qué etapa se están perdiendo clientes.</p>
+      <ul>
+        <li><strong>Awareness → Interés → Consideración → Compra → Retención → Referido.</strong></li>
+        <li><strong>Tasa de conversión por etapa:</strong> mide cada paso por separado — un embudo con 1% de conversión total puede tener un cuello de botella muy específico y arreglable.</li>
+        <li><strong>Fuentes de tráfico/leads:</strong> orgánico (SEO, contenido), pagado (ads), referidos, ventas directas (outbound) — diversificar reduce el riesgo de depender de un solo canal.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="section-num">02</span> Métricas que todo CEO debe monitorear</h2>
+      <ul>
+        <li><strong>CAC por canal:</strong> no todos los canales cuestan igual conseguir un cliente.</li>
+        <li><strong>Tasa de conversión</strong> de lead a cliente, y de visitante a lead.</li>
+        <li><strong>Churn</strong> (tasa de cancelación/abandono): retener cuesta 5-7 veces menos que adquirir.</li>
+        <li><strong>NPS</strong> (Net Promoter Score): qué tan dispuestos están los clientes a recomendarte.</li>
+        <li><strong>ROAS</strong> (retorno sobre gasto publicitario): ingresos generados por cada unidad gastada en ads.</li>
+      </ul>
+      <div class="kpi-box">
+        <div class="label">Regla de oro</div>
+        Si no puedes medir de dónde viene un cliente ni cuánto costó, no puedes decidir en qué invertir más.
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="section-num">03</span> Posicionamiento y marca</h2>
+      <p class="section-lede">La marca no es el logo: es la percepción que queda en la mente del cliente cuando piensa en tu categoría.</p>
+      <ul>
+        <li><strong>Mensaje central:</strong> una frase clara de por qué tú y no la competencia (elevator pitch).</li>
+        <li><strong>Consistencia</strong> entre lo que prometes en marketing y lo que entregas en el producto/servicio — la brecha entre ambos es la fuente número uno de mala reputación.</li>
+        <li><strong>Precio como señal</strong> de posicionamiento, no solo como cálculo de costos.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="section-num">04</span> Ventas: proceso y equipo</h2>
+      <ul>
+        <li><strong>Pipeline de ventas</strong> con etapas definidas y criterios objetivos para pasar de una a otra.</li>
+        <li><strong>CRM</strong> (gestión de relación con clientes) desde el día uno, aunque sea una hoja de cálculo ordenada — la memoria del fundador no escala.</li>
+        <li><strong>Ciclo de venta:</strong> conocer cuánto tarda en promedio cerrar un cliente, para proyectar ingresos con realismo.</li>
+      </ul>
+    </section>
+
+    <TopicNav currentSlug={topic.slug} />
+  </article>
+</Layout>

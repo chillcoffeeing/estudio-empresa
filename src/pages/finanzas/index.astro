@@ -1,0 +1,65 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import TopicNav from "../../components/TopicNav.astro";
+import { topics } from "../../data/topics";
+
+const topic = topics.find((t) => t.slug === "finanzas")!;
+---
+
+<Layout title={topic.title} color={topic.color}>
+  <div class="article-header">
+    <span class="icon-badge">{topic.icon}</span>
+    <h1>{topic.title}</h1>
+    <p class="subtitle">{topic.subtitle}</p>
+  </div>
+
+  <article>
+    <section>
+      <h2><span class="section-num">01</span> Los tres estados financieros</h2>
+      <p class="section-lede">Son el tablero de instrumentos de la empresa. Si no los lees tú, alguien más decide por ti.</p>
+      <ul>
+        <li><strong>Estado de resultados (P&L):</strong> ingresos − costos − gastos = utilidad, en un período de tiempo. Responde "¿ganamos dinero?".</li>
+        <li><strong>Balance general:</strong> activos = pasivos + patrimonio, en un momento dado. Responde "¿qué tenemos y qué debemos?".</li>
+        <li><strong>Flujo de caja:</strong> entradas y salidas reales de efectivo. Responde "¿tenemos con qué pagar la nómina el viernes?". Una empresa rentable en el P&L puede quebrar por falta de caja.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="section-num">02</span> Unit economics</h2>
+      <p class="section-lede">Antes de escalar, hay que saber si cada unidad vendida (o cada cliente) deja plata o la quema.</p>
+      <ul>
+        <li><strong>CAC</strong> (costo de adquisición de cliente): cuánto cuesta conseguir un cliente nuevo, incluyendo marketing y ventas.</li>
+        <li><strong>LTV</strong> (valor de vida del cliente): cuánto ingreso neto genera un cliente durante toda su relación con la empresa.</li>
+        <li><strong>Regla práctica:</strong> LTV debería ser al menos 3x el CAC para un negocio sano.</li>
+        <li><strong>Margen de contribución:</strong> precio de venta menos costos variables directos. Define cuánto queda para cubrir costos fijos.</li>
+        <li><strong>Punto de equilibrio:</strong> el volumen de ventas donde los ingresos igualan a los costos totales.</li>
+      </ul>
+      <div class="kpi-box">
+        <div class="label">Métricas a vigilar cada mes</div>
+        Margen bruto · Margen neto · Burn rate (quema mensual de caja) · Runway (meses de caja restante al ritmo actual) · Working capital.
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="section-num">03</span> Presupuesto y proyecciones</h2>
+      <p class="section-lede">Presupuestar no es adivinar: es fijar un plan y medir la desviación real contra él.</p>
+      <ul>
+        <li><strong>Presupuesto anual</strong> desglosado por mes, revisado trimestralmente contra lo real (análisis de varianza).</li>
+        <li><strong>Proyección de flujo de caja a 13 semanas:</strong> el horizonte mínimo para anticipar problemas de liquidez con tiempo de reacción.</li>
+        <li><strong>Escenarios:</strong> caso base, optimista y pesimista — nunca planificar con un solo número.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="section-num">04</span> Estructura de capital y fiscalidad</h2>
+      <p class="section-lede">Cómo se financia la empresa y qué le debe al Estado no es un detalle administrativo, es una decisión estratégica.</p>
+      <ul>
+        <li><strong>Deuda vs. capital propio (equity):</strong> la deuda es más barata pero exige pagos fijos; el equity diluye propiedad pero no presiona la caja.</li>
+        <li><strong>Régimen tributario</strong> aplicable a tu tipo de sociedad, y calendario de obligaciones (IVA, renta, retenciones).</li>
+        <li><strong>Separación estricta</strong> entre finanzas personales y de la empresa — el error más común y más caro en negocios pequeños.</li>
+      </ul>
+    </section>
+
+    <TopicNav currentSlug={topic.slug} />
+  </article>
+</Layout>

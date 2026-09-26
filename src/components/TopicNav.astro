@@ -1,0 +1,37 @@
+---
+import { topics } from "../data/topics";
+
+interface Props {
+  currentSlug: string;
+}
+
+const { currentSlug } = Astro.props;
+const sorted = [...topics].sort((a, b) => a.order - b.order);
+const idx = sorted.findIndex((t) => t.slug === currentSlug);
+const prev = idx > 0 ? sorted[idx - 1] : null;
+const next = idx < sorted.length - 1 ? sorted[idx + 1] : null;
+---
+
+<nav class="topic-nav">
+  {
+    prev ? (
+      <a href={`/${prev.slug}/`}>
+        <span class="dir">← Anterior</span>
+        {prev.icon} {prev.title}
+      </a>
+    ) : (
+      <a href="/">
+        <span class="dir">← Volver</span>
+        Índice general
+      </a>
+    )
+  }
+  {
+    next && (
+      <a class="next" href={`/${next.slug}/`}>
+        <span class="dir">Siguiente →</span>
+        {next.icon} {next.title}
+      </a>
+    )
+  }
+</nav>
