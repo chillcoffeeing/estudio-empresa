@@ -23,6 +23,16 @@ export default defineConfig({
         { label: 'Legal y Cumplimiento', slug: 'legal' },
         { label: 'Tecnología', slug: 'tecnologia' },
         { label: 'Habilidades Blandas y Pensamiento Sistémico', slug: 'habilidades-blandas' },
+        { label: '🇻🇪 Operar en Venezuela', slug: 'venezuela' },
+        {
+          label: 'Guías por tipo de empresa',
+          items: [
+            { label: 'Taller de Carpintería', slug: 'casos/carpinteria' },
+            { label: 'Hacienda de Café', slug: 'casos/hacienda-cafe' },
+            { label: 'Marca de Congelados', slug: 'casos/helados-congelados' },
+            { label: 'Productos de Limpieza', slug: 'casos/productos-limpieza' },
+          ],
+        },
       ],
     }),
   ],

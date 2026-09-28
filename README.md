@@ -1,43 +1,73 @@
-# Astro Starter Kit: Minimal
+# Guía del CEO
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Guía práctica de conocimiento empresarial para fundadores y CEOs, construida con [Astro Starlight](https://starlight.astro.build).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## Estructura del contenido
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+src/content/docs/
+├── index.mdx                      # Portada
+├── finanzas.md                    # Ramas generales
+├── matematicas-empresariales.md
+├── estrategia.md
+├── ventas-marketing.md
+├── operaciones.md
+├── personas-liderazgo.md
+├── legal.md
+├── tecnologia.md
+├── habilidades-blandas.md
+├── venezuela.md                   # Marco fiscal, laboral y regulatorio de Venezuela
+└── casos/                         # Guías por tipo de empresa
+    ├── carpinteria.md
+    ├── hacienda-cafe.md
+    ├── helados-congelados.md
+    └── productos-limpieza.md
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+- **Ramas generales:** el conocimiento aplicable a cualquier empresa.
+- **Operar en Venezuela (`venezuela.md`):** el país de referencia de la guía. Impuestos, obligaciones laborales, permisos y cómo manejar una economía bimonetaria.
+- **Guías por tipo de empresa (`casos/`):** resumen de lo que realmente importa de las ramas generales para un negocio concreto, con los puntos clave para escalar y una sección final "En Venezuela".
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Mantener las guías por tipo de empresa al día
 
-Any static assets, like images, can be placed in the `public/` directory.
+Cuando se actualiza una rama general, hay que revisar si ese cambio aplica a alguna guía de `casos/`. Para eso existe el subagente de Claude Code **`revisor-casos`**, definido en [`.claude/agents/revisor-casos.md`](.claude/agents/revisor-casos.md).
 
-## 🧞 Commands
+### Qué hace
 
-All commands are run from the root of the project, from a terminal:
+1. Revisa qué cambió en las ramas generales (con `git diff`, o con los archivos que le indiques).
+2. Para cada guía de `casos/`, decide si el cambio **aplica** a ese negocio (cambia una decisión, un número clave, un riesgo o un paso para escalar) o **no aplica** (es genérico o ya está cubierto).
+3. Si aplica, edita la guía en la sección correspondiente, adaptando el contenido con un ejemplo del rubro y enlazando a la rama general.
+4. Compila el sitio para verificar que no haya errores.
+5. Devuelve un resumen de qué cambió en cada guía y por qué.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### Cómo usarlo
 
-## 👀 Want to learn more?
+En Claude Code, dentro de este proyecto:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```text
+Usa el agente revisor-casos para revisar los cambios que hice en finanzas
+```
+
+o simplemente:
+
+```text
+/agents
+```
+
+para ver y editar el agente. El archivo [`CLAUDE.md`](CLAUDE.md) le indica a Claude que lo ejecute automáticamente después de modificar cualquier rama general.
+
+### Agregar un nuevo tipo de empresa
+
+1. Crea la página en `src/content/docs/casos/<nombre>.md` siguiendo la estructura de las existentes (lo que hace distinto al negocio, puntos críticos, números clave, lo esencial de cada rama, cómo escalar, errores comunes).
+2. Agrégala al sidebar en [`astro.config.mjs`](astro.config.mjs), en el grupo "Guías por tipo de empresa".
+3. Agrega su tarjeta en la portada ([`index.mdx`](src/content/docs/index.mdx)).
+4. Agrégala a la lista de guías en [`.claude/agents/revisor-casos.md`](.claude/agents/revisor-casos.md).
+
+## Comandos
+
+| Comando             | Acción                                           |
+| :------------------ | :----------------------------------------------- |
+| `npm install`       | Instala las dependencias                         |
+| `npm run dev`       | Levanta el servidor local en `localhost:4321`    |
+| `npm run build`     | Genera el sitio de producción en `./dist/`       |
+| `npm run preview`   | Previsualiza el build localmente                 |
