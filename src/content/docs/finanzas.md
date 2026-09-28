@@ -17,7 +17,7 @@ Antes de escalar, hay que saber si cada unidad vendida (o cada cliente) deja pla
 
 - **CAC** (costo de adquisición de cliente): cuánto cuesta conseguir un cliente nuevo, incluyendo marketing y ventas.
 - **LTV** (valor de vida del cliente): cuánto ingreso neto genera un cliente durante toda su relación con la empresa.
-- **Regla práctica:** LTV debería ser al menos 3x el CAC para un negocio sano.
+- **Regla práctica (con matiz):** un objetivo común es LTV ≥ 3x CAC, pero este número nació en SaaS maduro de EE.UU., no es una ley universal — muchas SaaS hoy apuntan a 4x o más, y negocios de retail, servicios o manufactura tienen ciclos y márgenes tan distintos que el 3x puede sobrar o quedarse corto. Úsalo como punto de partida y compáralo contra tu propio histórico de cohortes, no como meta fija.
 - **Margen de contribución:** precio de venta menos costos variables directos. Define cuánto queda para cubrir costos fijos.
 - **Punto de equilibrio:** el volumen de ventas donde los ingresos igualan a los costos totales.
 

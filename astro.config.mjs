@@ -15,6 +15,7 @@ export default defineConfig({
       social: [],
       sidebar: [
         { label: 'Finanzas y Contabilidad', slug: 'finanzas' },
+        { label: 'Matemáticas Aplicadas a la Gestión', slug: 'matematicas-empresariales' },
         { label: 'Estrategia y Modelo de Negocio', slug: 'estrategia' },
         { label: 'Ventas y Marketing', slug: 'ventas-marketing' },
         { label: 'Operaciones', slug: 'operaciones' },
